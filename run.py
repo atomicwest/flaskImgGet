@@ -13,7 +13,7 @@ class ReusableForm(Form):
     
 
 @app.route("/", methods=['GET', 'POST'])
-def hello():
+def imgGet():
     form = ReusableForm(request.form)
     
     print(form.errors)
