@@ -1,0 +1,73 @@
+wget https://www.python.org/ftp/python/3.5.0/Python-3.5.0.tgz
+tar xzvf Python-3.5.0.tgz
+cd Python-3.5.0
+./configure  --with-ssl
+make
+sudo make install
+
+
+python -m http.server
+
+
+==============
+
+touch ~/.bash_aliases
+
+sudo apt-get install nano
+
+sudo nano /etc/bash.bashrc
+
+  if [ -f ~/.bash_aliases ]; then
+      . ~/.bash_aliases
+  fi
+
+sudo nano ~/.bash_aliases
+
+alias python=python3
+
+alias myserver="python -m http.server"
+
+source /etc/bash.bashrc
+
+===============
+
+working bsoup
+
+ls fenv/lib/python3.x/site-packages
+
+
+===============
+
+https://stackoverflow.com/questions/18131264/how-to-use-beautifulsoup-without-installation-by-keeping-it-in-the-project-folde
+https://stackoverflow.com/questions/28376506/urllib-https-request-urlopen-error-unknown-url-type-https
+https://techglimpse.com/install-python-openssl-support-tutorial/
+
+download bsoup
+
+wget https://www.crummy.com/software/BeautifulSoup/bs4/download/4.6/beautifulsoup4-4.6.0.tar.gz
+
+mkdir fenv/lib/python3.6
+mkdir fenv/lib/python3.6/site-packages
+* cp -r beautifulsoup4-4.1.0/bs4 fenv/lib/python3.6/site-packages
+mkdir deps/bs4
+2to3 --output-dir=deps/bs4 -W -n beautifulsoup4-4.1.0/bs4
+
+add to scraper script:
+
+import sys, os
+bspath = os.path.join(os.path.dirname(os.path.abspath(__file__)),"BeutifulSoup")
+sys.path.append(bspath)
+
+= = = = = = = 
+
+uninstall python and enable ssl/https compatibility
+
+[
+cd Python-3.x (dir for source code)
+sudo make uninstall
+]
+
+
+
+wget https://pypi.python.org/packages/83/21/f469c9923235f8c36d5fd5334ed11e2681abad7e0032c5aba964dcaf9bbb/ssl-1.16.tar.gz
+./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl
